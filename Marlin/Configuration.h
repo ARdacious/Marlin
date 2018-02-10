@@ -688,7 +688,12 @@
  */
 #define X_PROBE_OFFSET_FROM_EXTRUDER -30  // X offset: -left  +right  [of the nozzle]
 #define Y_PROBE_OFFSET_FROM_EXTRUDER 0  // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -4.74   // Z offset: -below +above  [the nozzle]
+
+#define MIN_PROBE_X -120
+#define MIN_PROBE_Y -75
+#define MAX_PROBE_X 90
+#define MAX_PROBE_Y 75
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 8000
@@ -761,7 +766,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR false
+#define INVERT_E0_DIR true
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -808,14 +813,14 @@
 #if ENABLED(MIN_SOFTWARE_ENDSTOPS)
   #define MIN_SOFTWARE_ENDSTOP_X
   #define MIN_SOFTWARE_ENDSTOP_Y
-  #define MIN_SOFTWARE_ENDSTOP_Z
+  //#define MIN_SOFTWARE_ENDSTOP_Z
 #endif
 
 // Max software endstops curtail movement above maximum coordinate bounds
 #define MAX_SOFTWARE_ENDSTOPS
 #if ENABLED(MAX_SOFTWARE_ENDSTOPS)
-  #define MAX_SOFTWARE_ENDSTOP_X
-  #define MAX_SOFTWARE_ENDSTOP_Y
+  //#define MAX_SOFTWARE_ENDSTOP_X
+  //#define MAX_SOFTWARE_ENDSTOP_Y
   #define MAX_SOFTWARE_ENDSTOP_Z
 #endif
 
@@ -950,12 +955,12 @@
 
   // 3 arbitrary points to probe.
   // A simple cross-product is used to estimate the plane of the bed.
-  #define ABL_PROBE_PT_1_X 90
-  #define ABL_PROBE_PT_1_Y 120
-  #define ABL_PROBE_PT_2_X 90
-  #define ABL_PROBE_PT_2_Y 40
-  #define ABL_PROBE_PT_3_X 170
-  #define ABL_PROBE_PT_3_Y 40
+  #define ABL_PROBE_PT_1_X -70
+  #define ABL_PROBE_PT_1_Y 50
+  #define ABL_PROBE_PT_2_X 0
+  #define ABL_PROBE_PT_2_Y -50
+  #define ABL_PROBE_PT_3_X 70
+  #define ABL_PROBE_PT_3_Y 0
 
 #elif ENABLED(AUTO_BED_LEVELING_UBL)
 
@@ -1017,13 +1022,13 @@
 // @section homing
 
 // The center of the bed is at (X=0, Y=0)
-//#define BED_CENTER_AT_0_0
+#define BED_CENTER_AT_0_0
 
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
-//#define MANUAL_X_HOME_POS 0
-//#define MANUAL_Y_HOME_POS 0
-//#define MANUAL_Z_HOME_POS 0
+#define MANUAL_X_HOME_POS 119
+#define MANUAL_Y_HOME_POS 75
+#define MANUAL_Z_HOME_POS -0.5
 
 // Use "Z Safe Homing" to avoid homing with a Z probe outside the bed area.
 //
