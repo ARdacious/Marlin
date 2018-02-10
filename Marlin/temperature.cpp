@@ -889,7 +889,8 @@ float Temperature::analog2temp(const int raw, const uint8_t e) {
     }
 
   #if ENABLED(HEATER_0_USES_MAX6675)
-    if (e == 0) return 0.25 * raw;
+    // CALIBRATED COMBINATION OF THERMOCOUPLE AND MAX6675
+    if (e == 0) return (0.15 * raw) + 4.0;
   #endif
 
   if (heater_ttbl_map[e] != NULL) {
