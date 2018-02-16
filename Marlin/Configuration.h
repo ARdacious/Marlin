@@ -486,12 +486,12 @@
 
 #if DISABLED(ENDSTOPPULLUPS)
   // fine endstop settings: Individual pullups. will be ignored if ENDSTOPPULLUPS is defined
-  //#define ENDSTOPPULLUP_XMAX
-  //#define ENDSTOPPULLUP_YMAX
+  #define ENDSTOPPULLUP_XMAX
+  #define ENDSTOPPULLUP_YMAX
   //#define ENDSTOPPULLUP_ZMAX
   //#define ENDSTOPPULLUP_XMIN
   //#define ENDSTOPPULLUP_YMIN
-  //#define ENDSTOPPULLUP_ZMIN
+  #define ENDSTOPPULLUP_ZMIN
   //#define ENDSTOPPULLUP_ZMIN_PROBE // Using Aus3D IR probe which outputs VCC signal on trigger
 #endif
 
@@ -536,7 +536,7 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
 // Taken from replicator.xml from replicatorg sailfish distribution
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 94.139704, 94.139704, 400, 96.2752018703336624 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 94.139704*2, 94.139704*2, 400*2, 96.2752018703336624*2 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1052,7 +1052,7 @@
 #endif
 
 // Homing speeds (mm/m)
-#define HOMING_FEEDRATE_XY (50*60)
+#define HOMING_FEEDRATE_XY (16*60)
 #define HOMING_FEEDRATE_Z  (10*60)
 
 // @section calibrate
@@ -1085,7 +1085,7 @@
  *    +-------------->X     +-------------->X     +-------------->Y
  *     XY_SKEW_FACTOR        XZ_SKEW_FACTOR        YZ_SKEW_FACTOR
  */
-#define SKEW_CORRECTION
+//#define SKEW_CORRECTION
 
 #if ENABLED(SKEW_CORRECTION)
   // Input all length measurements here:
